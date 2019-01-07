@@ -24,8 +24,8 @@ class Button extends React.Component {
 }
 
 Button.defaultProps = {
-	show: true,
-	backgroundColor: null
+	show: true, // show/hide flag for button
+	backgroundColor: null //selection color
 }
 
 export default Button

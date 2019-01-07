@@ -5,6 +5,7 @@ import * as AppActions from '../DispatcherActions/Actions'
 class TabList extends React.Component {
 	createTab(metaData) {
 		const currentTab = this.props.currentTab
+		//selection highlight if this is the current tab
 		const backgroundColor = metaData.key === currentTab.key ? 'lightblue' : null
 		return (
 			<Button 

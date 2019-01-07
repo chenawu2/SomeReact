@@ -16,12 +16,12 @@ class MainPage extends React.Component {
 	}
 
 	componentDidMount() {
-		let id = TabStore.getModalChangeId()
+		const id = TabStore.getModalChangeId()
 		TabStore.on(id, this.openModal)
 	}
 
 	componentWillUnmount() {
-		let id = TabStore.getModalChangeId()
+		const id = TabStore.getModalChangeId()
 		TabStore.removeListener(id, this.openModal)
 	}
 

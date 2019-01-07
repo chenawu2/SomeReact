@@ -8,11 +8,13 @@ class TabBody extends React.Component {
 			height: '100%'
 		}
 
+		//unwrap currentTab
 		const currentTab = this.props.currentTab
-		console.log(currentTab)
 		if (currentTab === null) {
 			return null
 		}
+
+		//unwrap bodyText
 		const body = currentTab.bodyText
 		if (body === null) {
 			return null

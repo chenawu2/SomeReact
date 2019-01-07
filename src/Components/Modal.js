@@ -15,30 +15,30 @@ class Modal extends React.Component {
 	}
 
 	componentDidMount() {
-		let addTabId = TabStore.getAddTabId()
+		const addTabId = TabStore.getAddTabId()
 		TabStore.on(addTabId, this.renderState)
 
-		let removeTabId = TabStore.getSubtractTabId()
+		const removeTabId = TabStore.getSubtractTabId()
 		TabStore.on(removeTabId, this.renderState)
 
-		let bodyChangedId = TabStore.getBodyChangedId()
+		const bodyChangedId = TabStore.getBodyChangedId()
 		TabStore.on(bodyChangedId, this.renderState)
 
-		let pressedTabId = TabStore.getPresedTabId()
+		const pressedTabId = TabStore.getPresedTabId()
 		TabStore.on(pressedTabId, this.renderState)
 	}
 
 	componentWillUnmount() {
-		let addTabId = TabStore.getAddTabId()
+		const addTabId = TabStore.getAddTabId()
 		TabStore.removeListener(addTabId, this.renderState)
 
-		let removeTabId = TabStore.getSubtractTabId()
+		const removeTabId = TabStore.getSubtractTabId()
 		TabStore.removeListener(removeTabId, this.renderState)
 
-		let bodyChangedId = TabStore.getBodyChangedId()
+		const bodyChangedId = TabStore.getBodyChangedId()
 		TabStore.removeListener(bodyChangedId, this.renderState)
 
-		let pressedTabId = TabStore.getPresedTabId()
+		const pressedTabId = TabStore.getPresedTabId()
 		TabStore.removeListener(pressedTabId, this.renderState)
 	}
 
@@ -48,8 +48,7 @@ class Modal extends React.Component {
 	}
 
 	inputDidChange(evt) {
-		let newBody = evt.target.value
-		console.log(newBody)
+		const newBody = evt.target.value
 		AppActions.bodyChanged(newBody)
 	}
 

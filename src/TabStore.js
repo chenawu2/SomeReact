@@ -30,13 +30,13 @@ class TabStore extends EventEmitter {
 				break
 			}
 			case AppActions.APP_ACTIONS.ADD_TAB: {
-				//create tab meta data
-				var now = Date.now()
-				var newTab = {
-					key: now,
+				//create a new tab
+				const newTab = {
+					key: Date.now(),
 					title: this.titleCount,
 					bodyText: `Sample text for tab #${this.titleCount}`
 				}
+				//append new tab and set to current tab
 				this.tabsMetaData = [...this.tabsMetaData, newTab]
 				this.titleCount += 1
 				this.currentTab = newTab
@@ -44,10 +44,12 @@ class TabStore extends EventEmitter {
 				break
 			}
 			case AppActions.APP_ACTIONS.SUBTRACT_TAB: {
-				let poppedTab = this.tabsMetaData.pop()
+				//removes the last tab in the array
+				const poppedTab = this.tabsMetaData.pop()
 				if (poppedTab === this.currentTab) {
 					this.currentTab = this.tabsMetaData.slice(-1)[0]
 				}
+				//if we ran out of tabs, nullify currentTab
 				if (this.tabsMetaData.length === 0) {
 					this.currentTab = null
 				}
@@ -55,13 +57,15 @@ class TabStore extends EventEmitter {
 				break
 			}
 			case AppActions.APP_ACTIONS.BODY_CHANGED: {
-				let newBody = action.value
+				//update the body of currentTab
+				const newBody = action.value
 				this.currentTab.bodyText = newBody
 				this.emit(BODY_CHANGED)
 				break
 			}
 			case AppActions.APP_ACTIONS.PRESSED_TAB: {
-				let key = action.value
+				//find the tab that was pressed by the key
+				const key = action.value
 				const selectedTab = this.tabsMetaData.find((element) => {
 					return element.key === key
 				})

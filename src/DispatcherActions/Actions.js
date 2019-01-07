@@ -8,6 +8,7 @@ export const APP_ACTIONS = {
 	PRESSED_TAB: 'appActions.pressedTab'
 }
 
+// modal was toggled open/close
 export function toggleModal(isOpen) {
 	dispatcher.dispatch({
 		type: APP_ACTIONS.TOGGLE_MODAL,
@@ -15,6 +16,7 @@ export function toggleModal(isOpen) {
 	})
 }
 
+//adds a tab
 export function addTab() {
 	dispatcher.dispatch({
 		type: APP_ACTIONS.ADD_TAB,
@@ -22,6 +24,7 @@ export function addTab() {
 	})
 }
 
+//removes the most recently created tab
 export function subtractTab() {
 	dispatcher.dispatch({
 		type: APP_ACTIONS.SUBTRACT_TAB,
@@ -29,6 +32,7 @@ export function subtractTab() {
 	})
 }
 
+//tab's body text has changed
 export function bodyChanged(newBody) {
 	dispatcher.dispatch({
 		type: APP_ACTIONS.BODY_CHANGED,
@@ -36,6 +40,7 @@ export function bodyChanged(newBody) {
 	})
 }
 
+//selected a tab
 export function pressedTab(tabKey) {
 	dispatcher.dispatch({
 		type: APP_ACTIONS.PRESSED_TAB,
